@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言板 · 25计算机2班回忆录</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <nav class="navbar">
+        <div class="nav-logo">
+            <span class="logo-icon">💻</span><span class="logo-text">25计2</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="gallery.html">照片墙</a></li>
+            <li><a href="timeline.html">时光轴</a></li>
+            <li><a href="about.html">班级介绍</a></li>
+            <li><a href="message.html" class="active">留言板</a></li>
+        </ul>
+        <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">留言板</h1>
+            <p class="page-subtitle">写下你想说的话，留下最珍贵的记忆</p>
+        </div>
+    </section>
+
+    <!-- 顶部说明：留言存在云端，所有人都能看到 -->
+    <section class="message-form-section">
+        <div class="container">
+            <div class="message-form-card">
+                <h2>📝 留下你的心声</h2>
+                <p class="form-tip">✦ 所有留言保存在云端文档，<b>同学写的内容大家都能看到</b>，刷新页面不会消失。<br>
+                ✦ 直接在下方输入框里写下名字和留言即可，提交后会显示在同学们中间。</p>
+
+                <form id="messageForm" class="message-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nameInput">你的名字</label>
+                            <input type="text" id="nameInput" placeholder="请输入姓名" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="moodSelect">心情</label>
+                            <select id="moodSelect">
+                                <option value="😊">😊 开心</option>
+                                <option value="🥰">🥰 感动</option>
+                                <option value="😢">😢 怀念</option>
+                                <option value="😂">😂 笑哭</option>
+                                <option value="🤩">🤩 兴奋</option>
+                                <option value="😎">😎 酷</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="messageInput">留言内容</label>
+                        <textarea id="messageInput" rows="3" placeholder="写下你对25计2的祝福或回忆..." required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary"><span>发布到云端</span><i class="arrow">→</i></button>
+                        <button type="button" class="btn btn-secondary" id="randomWish">🎲 随机祝福</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 留言列表：所有人的留言（从云端拉取） -->
+    <section class="messages-section">
+        <div class="container">
+            <div class="messages-header">
+                <h2 class="section-title">同学们的留言</h2>
+                <div class="messages-filter">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="recent">最新</button>
+                    <button class="filter-btn" data-filter="popular">最热</button>
+                </div>
+            </div>
+            <div class="messages-grid" id="messagesGrid">
+                <div class="empty-tip">
+                    <div class="empty-icon">⏳</div>
+                    <p>正在从云端加载留言…</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 备用：跳转到在线文档查看/导出留言 -->
+    <section class="doc-fallback-section">
+        <div class="container">
+            <div class="doc-fallback-card">
+                <h3>📋 想要直接编辑/导出所有留言？</h3>
+                <p>所有留言同时保存到我们的云端文档里。点击下方按钮在文档中查看、编辑或导出全部留言。</p>
+                <a id="docLink" href="#" target="_blank" class="btn btn-outline">📄 打开在线留言文档</a>
+                <p class="hint">*如果您是管理员，请在 <code>js/message.js</code> 顶部修改 <code>DOC_URL</code> 为您的真实文档链接。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-nav">
+        <div class="container">
+            <a href="about.html" class="page-nav-link">← 上一个：班级介绍</a>
+            <a href="index.html" class="page-nav-link">回到首页 →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container"><div class="footer-bottom"><p>© 2026 25计算机2班 · 用 ❤️ 制作</p></div></div>
+    </footer>
+    <button class="back-to-top" id="backToTop">↑</button>
+
+    <script src="js/main.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/message.js"></script>
+</body>
+</html>
